@@ -1,24 +1,29 @@
 const express = require('express');
+require('dotenv').config();
+const bodyParser = require('body-parser');
+const listViewRouter = require('./list-view-router');
+const listEditRouter = require('./list-edit-router');
+let tareas = require('./listaDeTareas');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  const tasks = [
-    {
-      id: '123456',
-      isCompleted: false,
-      description: 'Walk the dog',
-    },
-    {
-      id: '789012',
-      isCompleted: true,
-      description: 'Do the laundry',
-    },
-  ];
+app.use(bodyParser.json());
+app.use(express.static("public"));
 
-  res.json(tasks);
+app.use('/list-view', listViewRouter);
+app.use('/list-edit', listEditRouter);
+
+app.get('/', (req, res) => {
+  if (tareas.length === 0) {
+    res.status(404).send({
+      mensaje: 'No hay tareas',
+    });
+  } else {
+    res.status(200).send(tareas);
+  }
 });
 
-app.listen(3000, () => {
-  console.log('El servidor está escuchando en el puerto 3000');
+const port = process.env.PORT;
+app.listen(port, () => {
+  console.log(`Servidor en ejecución en el puerto ${port}`);
 });
