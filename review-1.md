@@ -7,7 +7,7 @@ Mi producto es un organizador de tareas sencillo y fácil de usar. Permite a los
 Las funcionalidades más importantes de mi producto son:
 
 Crear tareas: Los usuarios pueden crear tareas fácilmente, simplemente proporcionando una descripción de la tarea.
-Editar tareas: Los usuarios pueden editar tareas existentes, por ejemplo, para cambiar la descripción o el estado.
+Editar tareas: Los usuarios pueden editar tareas existentes, por ejemplo, para cambiar el estado.
 Eliminar tareas: Los usuarios pueden eliminar tareas que ya no son necesarias.
 Ver tareas pendientes y completadas: Los usuarios pueden ver una lista de sus tareas pendientes y completadas.
 Los usuarios usarían estas funcionalidades para organizar sus tareas y mantenerlas en orden. Esto puede ser útil para personas que tienen muchas tareas que realizar, o para personas que quieren asegurarse de que no se les olvide ninguna tarea importante.
