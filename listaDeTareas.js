@@ -1,8 +1,8 @@
 let listaDeTareas = [
     {
         id: 1,
-        estado: 'pendiente',
         descripcion: "trotar",
-    }]
+        estado: 'pendiente',
+    }];
 
     module.exports = listaDeTareas;

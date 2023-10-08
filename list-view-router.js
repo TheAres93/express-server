@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 let tareas = require('./listaDeTareas');
 
-router.get('/listar/completadas', (req, res) => {
-  const tareasCompletadas = tareas.filter((tarea) => tarea.descripcion === 'completada');
+router.get('/completadas', (req, res) => {
+  const tareasCompletadas = tareas.filter((tarea) => tarea.estado == 'Completada');
 
   if (tareasCompletadas.length === 0) {
     res.status(404).send({
@@ -14,8 +14,8 @@ router.get('/listar/completadas', (req, res) => {
   }
 });
 
-router.get('/listar/pendientes', (req, res) => {
-  const tareasPendientes = tareas.filter((tarea) => tarea.descripcion !== 'completada');
+router.get('/pendientes', (req, res) => {
+  const tareasPendientes = tareas.filter((tarea) => tarea.estado != 'Completada');
 
   if (tareasPendientes.length === 0) {
     res.status(404).send({
