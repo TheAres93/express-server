@@ -10,11 +10,11 @@ router.post('/crear', (req, res) => {
   };
 
   if (!nuevaTarea.descripcion) {
-    return res.status(400).send({message: 'La solicitud no tiene un valor para la propiedad "descripcion".'});
+    return res.send({message: 'La solicitud no tiene un valor para la propiedad "descripcion".'});
   }
 
   tareas.push(nuevaTarea);
-  res.status(200).send({message:`La tarea "${nuevaTarea.descripcion}" ha sido agregada.`});
+  res.send({message:`La tarea "${nuevaTarea.descripcion}" ha sido agregada.`});
 });
 
 router.delete('/eliminar/:id', (req, res) => {
@@ -23,9 +23,9 @@ router.delete('/eliminar/:id', (req, res) => {
 
   if (tarea) {
     tareas.splice(tareas.indexOf(tarea), 1);
-    res.status(200).send(`La tarea "${tarea.descripcion}" ha sido eliminada.`);
+    res.send(`La tarea "${tarea.descripcion}" ha sido eliminada.`);
   } else {
-    res.status(404).send('La tarea no esta en nuestra base de datos.');
+    res.send('La tarea no esta en nuestra base de datos.');
   }
 });
 
@@ -35,9 +35,9 @@ router.put('/actualizar/:id', (req, res) => {
 
   if (tarea) {
     tarea.estado = 'Completada';
-    res.status(200).send(`La tarea "${tarea.descripcion}" ha sido actualizada.`);
+    res.send(`La tarea "${tarea.descripcion}" ha sido actualizada.`);
   } else {
-    res.status(404).send('La tarea no esta en nuestra base de datos.');
+    res.send('La tarea no esta en nuestra base de datos.');
   }
 });
 

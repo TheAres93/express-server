@@ -15,17 +15,17 @@ app.use('/editar', listEditRouter);
 
 app.get('/listar', (req, res) => {
   if (tareas.length === 0) {
-    res.status(404).send({
+    res.send({
       mensaje: 'No hay tareas',
     });
   } else {
-    res.status(200).send(tareas);
+    res.send(tareas);
   }
 });
 
 app.get('/', (req, res) => {
 
-    res.status(200).send("Bienvenido a tu organizador de tareas.");
+    res.send("Bienvenido a tu organizador de tareas.");
 
 });
 
