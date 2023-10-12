@@ -28,4 +28,3 @@ router.get('/pendientes', (req, res) => {
 
 
 module.exports = router;
-
