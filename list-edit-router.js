@@ -29,7 +29,7 @@ router.delete('/eliminar/:id', (req, res) => {
   }
 });
 
-router.put('/actualizar/:id', (req, res) => {
+router.put('/actualizar/:id', (req, res, next) => {
   const tareaId = req.params.id;
   const tarea = tareas.find((tarea) => tarea.id == tareaId);
 

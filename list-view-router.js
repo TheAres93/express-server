@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 let tareas = require('./listaDeTareas');
 
+router.get('/', (req, res) => {
+  if (tareas.length === 0) {
+    res.status(404).send({
+      mensaje: 'No hay tareas',
+    });
+  } else {
+    res.status(200).send(tareas);
+  }
+});
+
 router.get('/completadas', (req, res) => {
   const tareasCompletadas = tareas.filter((tarea) => tarea.estado == 'Completada');
 
