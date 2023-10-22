@@ -36,5 +36,16 @@ router.get('/pendientes', (req, res) => {
   }
 });
 
+router.get('/buscar/:descripcion', (req, res) => {
+  const tareaDescripcion = req.params.descripcion;
+  const tarea = tareas.find((tarea) => tarea.descripcion.includes(tareaDescripcion));
+
+  if (tarea) {
+    res.status(200).send(tarea);
+  } else {
+    res.status(404).send('La tarea no esta en nuestra base de datos.');
+  }
+});
+
 
 module.exports = router;
